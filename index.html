@@ -1,0 +1,117 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>paramJS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="Tools.js"></script>
+        <script src="engine.js"></script>
+        <script src="MathConvert.js"></script>
+        <script src="translator.js"></script>
+        <script>
+            function init_examples(examples)
+            {
+                var continers = {
+                    px : document.getElementById('px').childNodes[1],
+                    py : document.getElementById('py').childNodes[1],
+                    pz : document.getElementById('pz').childNodes[1],
+                    u_as : document.getElementById('t_as'),
+                    u_ae : document.getElementById('t_ae'),
+                    v_as : document.getElementById('s_as'),
+                    v_ae : document.getElementById('s_ae'),
+                    type : document.getElementById('type')
+                }
+                var btn_click = document.getElementById('btn_send');
+                var select_elem = document.getElementById('shapes');
+                examples = new Examples(continers, btn_click, select_elem);
+            }
+            
+            document.onreadystatechange = function()
+            {
+                if (document.readyState == "complete")
+                {
+                    var msg = new Message(document.getElementById('msgs'));
+                    var examples = null;
+                    init_examples(examples);
+                    var engine = new Engine('cnvs');
+                    ///engine.draw();
+                    var trans = new Translator('insert','type','btn_send',engine,msg);
+                    console.log('ready');
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div id="insert">
+            <select id="type">
+                <option value="1">r(t)</option>
+                <option value="2">r(t,s)</option>
+            </select>
+            <span id="px">X: <input type="text" size="21"/></span>
+            <span id="py">Y: <input type="text" size="21"/></span>
+            <span id="pz"> Z: <input type="text"  size="21"/></span>
+            <span id="t_b" class="p_con">
+                <b>t</b> from <input type="text" id="t_as" size="4" /> to <input type="text" id="t_ae" size="4" />
+            </span>
+            <span id="s_b" class="p_con">
+                <b>s</b> from <input type="text" id="s_as" size="4" /> to <input type="text" id="s_ae" size="4" />
+            </span>
+            
+            <span class="note">
+                for &pi; use PI
+            </span>
+            
+            <div class="help">
+                <a href='javascript:void(0);'>Help</a>
+                <ul>
+                    <li>
+                        Controls: 
+                        <ol>
+                            <li>Rotate: Mouse</li>
+                            <li>Scale +: PgUp</li>
+                            <li>Scale -: PgDn</li>
+                            <li>Move left: &#8594; </li>
+                            <li>Move right: &#8592; </li>
+                            <li>Move forward: &#8593; </li>
+                            <li>Move backward: &#8595; </li>
+                            <li>Reset Camera: Home </li>
+                        </ol>
+                    </li>
+                    <li>You can use the functions : sin,cos,tan ,arctan, arcsin etc.</li>
+                    <li>'e^t' should be written as 'exp(t)'</li>
+                    <li>if some lines seems to appear and disappear it's because they are too long. 
+                    try to make them shorter</li>
+                </ul>
+            </div>
+            
+            <div class="examples">
+                <a href='javascript:void(0);'>Examples</a>
+                <ul>
+                    <li>
+                        <select id="shapes">
+                            <option value="-1">Select Parameterization</option>
+                            <option value="sphere">Sphere With radius 100</option>
+                            <option value="circle">Circle With radius 100</option>
+                            <option value="torus">Torus With radius1 100 and radius2 50</option>
+                            <option value="helicoid">Helicoid With radius 50</option>
+                            <option value="cone">Cone With max radius 100</option>
+                        </select>
+                    </li>
+                    <li>
+                        On select the shape will be rendered
+                    </li>
+                </ul>
+            </div>
+            
+            <input type="button" value="render" id="btn_send"/>
+            <div id="msgs">
+            </div>
+        </div>
+        <canvas id ="cnvs"></canvas>
+    </body>
+</html>

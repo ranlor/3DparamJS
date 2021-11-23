@@ -1,0 +1,113 @@
+html,body
+{
+    padding:0;
+    margin:0;
+    font-family: Arial,Roman;
+    font-size: 16px;
+    line-height: 20px;
+}
+#insert
+{
+    padding:5px 10px;
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+#btn_send
+{
+    border:1px solid #000;
+    color:#000;
+    background: #fff;
+    padding: 2px 25px;
+    margin-left: 10px;
+    border-radius:3px;
+    position: absolute;
+    right:10px;
+}
+#btn_send:hover
+{
+    color:#fff;
+    background: #000;
+}
+#btn_send:active
+{
+    color:#000;
+    background: #fff;
+}
+#insert .p_con
+{
+    padding: 0 10px;
+}
+#insert input[type=text]
+{
+    border:1px solid #000;
+    border-radius:3px;
+}
+#insert .note
+{
+    color:#666;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#insert .examples,
+#insert .help
+{
+    margin:0 10px;
+    display: inline;
+    position:relative;
+}
+
+#insert .examples ul,
+#insert .help ul
+{
+    position:absolute;
+    background-color: #fff;
+    color:#666;
+    top:17px;
+    left:0;
+    z-index:10;
+    font-size: 12px;
+    padding:10px 20px;
+    margin:0;
+    border: 1px #999 solid;
+    border-top-width: 0;
+    border-radius: 0 0 10px 10px;
+    display:none;
+    width:300px;
+}
+
+#insert .examples:hover ul,
+#insert .help:hover ul
+{
+    display:block;
+}
+
+#insert .help a
+{
+    color:#cc3333;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#insert .examples a
+{
+    color:#33cc33;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+#insert #msgs
+{
+    position:absolute;
+    left:35%;
+    top: 32px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color:#666;
+    width:30%;
+    text-align: center;
+    border: 1px #999 solid;
+    border-top-width: 0;
+    border-radius: 0 0 10px 10px;
+}
