@@ -1,5 +1,6 @@
 # paramJS
-A 3d engine to display 3d objects from 1 parameter or 2 parameter functions
+Simple 3D engine to render wireframe objects using Mathematical Parameterizations input from the user
+
 This "engine" was written from scratch in javascript and the canvas API somewhere in mid 2014 
 and is uploaded here as-is with typos and okay-ish code 
 
